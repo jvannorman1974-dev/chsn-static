@@ -1,3 +1,15 @@
+/* Google Analytics 4 — added 2026-10-16 */
+(function() {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3ZNF3DV7J1';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-3ZNF3DV7J1');
+})();
+
 /**
  * Static-site shim for Creative Home Solutions Now.
  *
