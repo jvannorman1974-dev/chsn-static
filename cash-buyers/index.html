@@ -1,1 +1,118 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Join the Creative Home Solutions Now cash buyers list. Get first access to off-market investment properties in Fond du Lac, Dodge County, and surrounding Wisconsin areas." />
+<meta property="og:title" content="Cash Buyers List | Creative Home Solutions Now" />
+<meta property="og:description" content="Get first access to off-market deals in Fond du Lac & Dodge County, Wisconsin." />
+<link rel="icon" href="data:," />
+<title>Cash Buyers List | Creative Home Solutions Now</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; color: #1a1a1a; line-height: 1.6; background: #fafaf8; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 2em 1.2em 4em; }
+  .logo { text-align: center; margin-bottom: 1.5em; }
+  .logo img { max-width: 160px; height: auto; }
+  h1 { font-size: 1.8em; text-align: center; color: #1a3a5c; margin-bottom: 0.4em; }
+  .sub { text-align: center; color: #555; margin-bottom: 2em; font-size: 1.05em; }
+  form { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1.8em; }
+  label { display: block; font-weight: bold; margin: 1em 0 0.3em; font-size: 0.95em; }
+  label:first-child { margin-top: 0; }
+  input, select, textarea { width: 100%; padding: 0.7em; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; font-family: inherit; }
+  textarea { min-height: 90px; resize: vertical; }
+  .hint { font-size: 0.85em; color: #777; margin-top: 0.2em; font-weight: normal; }
+  button { display: block; width: 100%; margin-top: 1.5em; padding: 0.9em; background: #1a3a5c; color: #fff; border: none; border-radius: 4px; font-size: 1.1em; font-family: inherit; cursor: pointer; }
+  button:hover { background: #24486e; }
+  button:disabled { background: #999; cursor: default; }
+  .note { text-align: center; font-size: 0.9em; color: #777; margin-top: 1.5em; }
+  .success { display: none; background: #e8f5e9; border: 1px solid #4caf50; border-radius: 8px; padding: 1.5em; text-align: center; }
+  .footer { text-align: center; margin-top: 3em; font-size: 0.85em; color: #999; }
+  .footer a { color: #1a3a5c; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">
+    <img src="../assets/company-logo-5c9s4rtp.jpg" alt="Creative Home Solutions Now, LLC" />
+  </div>
+  <h1>Cash Buyers List</h1>
+  <p class="sub">I find off-market houses in Fond du Lac, Dodge County, and surrounding Wisconsin areas. Join the list and you'll hear about deals before anyone else.</p>
+
+  <div class="success" id="success">
+    <h2>You're on the list.</h2>
+    <p>I'll reach out when I have a deal that fits what you're looking for.</p>
+  </div>
+
+  <form id="buyerForm">
+    <label>Name
+      <input type="text" name="name" required placeholder="Your full name" />
+    </label>
+    <label>Email
+      <input type="email" name="email" required placeholder="you@example.com" />
+    </label>
+    <label>Phone
+      <input type="tel" name="phone" required placeholder="(920) 555-1234" />
+    </label>
+    <label>What areas do you buy in?
+      <input type="text" name="areas" placeholder="e.g. Fond du Lac, Dodge County, Beaver Dam" />
+    </label>
+    <label>Price range
+      <select name="price_range">
+        <option value="">Select a range</option>
+        <option>Under $100K</option>
+        <option>$100K – $200K</option>
+        <option>$200K – $300K</option>
+        <option>$300K+</option>
+        <option>No limit</option>
+      </select>
+    </label>
+    <label>Property types <span class="hint">(check all that apply)</span></label>
+    <div style="margin-top:0.3em;">
+      <label style="font-weight:normal;"><input type="checkbox" name="property_types" value="Single family" style="width:auto;margin-right:0.4em;" />Single family</label>
+      <label style="font-weight:normal;"><input type="checkbox" name="property_types" value="Multi-family" style="width:auto;margin-right:0.4em;" />Multi-family</label>
+      <label style="font-weight:normal;"><input type="checkbox" name="property_types" value="Land" style="width:auto;margin-right:0.4em;" />Land / lots</label>
+      <label style="font-weight:normal;"><input type="checkbox" name="property_types" value="Commercial" style="width:auto;margin-right:0.4em;" />Commercial</label>
+    </div>
+    <label>Anything else I should know?
+      <textarea name="notes" placeholder="Your strategy, how fast you can close, etc."></textarea>
+    </label>
+    <input type="hidden" name="_subject" value="New cash buyer signup" />
+    <button type="submit" id="submitBtn">Join the Buyers List</button>
+  </form>
+
+  <p class="note">No spam. You'll only hear from me when I have a real deal.</p>
+  <div class="footer">
+    <a href="../">← Back to creativehomesolutionsnow.com</a><br /><br />
+    Creative Home Solutions Now, LLC • Fond du Lac, WI
+  </div>
+</div>
+<script>
+document.getElementById('buyerForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Joining...';
+  var data = {};
+  new FormData(this).forEach(function(v, k) {
+    if (data[k]) { data[k] = [].concat(data[k], v).join(', '); }
+    else { data[k] = v; }
+  });
+  try {
+    await fetch('https://formsubmit.co/ajax/jason@creativehomesolutionsnow.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    document.getElementById('buyerForm').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Join the Buyers List';
+    alert('Something went wrong. Please try again or call (920) 539-9037.');
+  }
+});
+</script>
+</body>
+</html>
